@@ -4,7 +4,7 @@ import scipy.stats
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib import colorsgit remote add origin <remote repository URL>
+from matplotlib import colors
 from matplotlib.ticker import PercentFormatter
 import csv 
 from collections import Counter
