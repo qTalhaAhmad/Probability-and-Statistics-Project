@@ -25,6 +25,7 @@ dataset3 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and St
 dataset4 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Temperature_19012016.csv')
 
 dataset6 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\19012016.csv')
+dataset7 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\19012016_2.csv')
 
 modifieddataset3 = pd.DataFrame(dataset3, columns= ['Rainfall (MM)','Year'])
 modifieddataset4 = pd.DataFrame(dataset4, columns= ['Temperature (Celsius)','Year'])
@@ -102,12 +103,11 @@ print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:")
 print(rainMaxRow)
 print("\n")
 
-# Building Bar Graph of Monthly Rainfall from 1901-2016
-data = pd.DataFrame(dataset6)
-index = pd.DataFrame(dataset6)
-# Dictionary loaded into a DataFrame       
-dataFrame = pd.DataFrame(data=data, index=index, usecols=(0,5));
-# Draw a vertical bar chart
-dataFrame.plot.bar(rot=15, title="Temprature vs Rainfall comparision by Month");
-plt.show(block=True);
+# Rainfall on X, Temprature on Y, Bar Graph, Shows a trend.
+dataset7.plot.bar(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
+plt.show()
+
+# Rainfall on X, Temprature on Y, Scatter Plot, Shows a trend.
+dataset7.plot.scatter(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
+plt.show()
 
