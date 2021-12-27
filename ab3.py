@@ -66,20 +66,40 @@ describeData=dataset5[['Temperature (Celsius)','Rainfall (MM)']].describe().roun
 print(describeData)
 print("\n")
 
-# Taking Minimum of Monthly Temprature and Rainfall from 1901-2016
+# Taking Minimum and Maximum of Monthly Temprature from 1901-2016
 tempMin=dataset5['Temperature (Celsius)'].min()
 print ("Minimum Monthly Temprature (Celsius) from 1901-2016 is:",tempMin, "Celsius")
 print("\n")
-rainMin=dataset5['Rainfall (MM)'].min()
-print ("Minimum Monthly Rainfall (MM) from 1901-2016 is:",rainMin, "MM")
-print("\n")
-
-# Taking Maximum of Monthly Temprature and Rainfall from 1901-2016
 tempMax=dataset5['Temperature (Celsius)'].max()
 print ("Maximum Monthly Temprature (Celsius) from 1901-2016 is:",tempMax, "Celsius")
+print("\n")
+
+
+# Taking Minimum and Maximum  Value of Monthly Rainfall from 1901-2016
+rainMin=dataset5['Rainfall (MM)'].min()
+print ("Minimum Monthly Rainfall (MM) from 1901-2016 is:",rainMin, "MM")
 print("\n")
 rainMax=dataset5['Rainfall (MM)'].max()
 print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:",rainMax, "MM")
 print("\n")
 
-#dataset5.mean().plot(kind='bar');
+# Taking Minimum and Maximum  Row of Monthly Temprature from 1901-2016
+tempMinRow = dataset4.loc[dataset4['Temperature (Celsius)'] == tempMin]
+print ("Minimum Monthly Temprature (Celsius) from 1901-2016 is:")
+print(tempMinRow)
+print("\n")
+tempMaxRow = dataset4.loc[dataset4['Temperature (Celsius)'] == tempMax]
+print ("Maximum Monthly Temprature (Celsius) from 1901-2016 is:")
+print(tempMaxRow)
+print("\n")
+
+# Taking Minimum and Maximum  Row of Monthly Rainfall from 1901-2016
+
+rainMinRow = dataset3.loc[dataset3['Rainfall (MM)'] == rainMin]
+print ("Minimum Monthly Rainfall (MM) from 1901-2016 is:")
+print(rainMinRow)
+print("\n")
+rainMaxRow = dataset3.loc[dataset3['Rainfall (MM)'] == rainMax]
+print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:")
+print(rainMaxRow)
+print("\n")
