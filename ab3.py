@@ -41,7 +41,7 @@ tempMean=dataset5['Temperature (Celsius)'].mean()
 rainMean=dataset5['Rainfall (MM)'].mean()
 #print ("Average Monthly Rainfall (MM) from 1901-2016 is:",rainMean, "MM")
 
-# Taking Mean of Monthly Temprature and Rainfall from 1901-2016
+# Taking Median of Monthly Temprature and Rainfall from 1901-2016
 tempMedian=dataset5['Temperature (Celsius)'].median()
 #print ("Median Monthly Temprature (Celsius) from 1901-2016 is:",tempMedian, "Celsius")
 rainMedian=dataset5['Rainfall (MM)'].median()
@@ -49,6 +49,6 @@ rainMedian=dataset5['Rainfall (MM)'].median()
 
 # Describe Dataset of Temprature and Rainfall from 1901-2016
 describeData=dataset5[['Temperature (Celsius)','Rainfall (MM)']].describe().round()
-#print(describeData)
+print(describeData)
 
 #dataset5.mean().plot(kind='bar');

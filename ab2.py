@@ -7,6 +7,7 @@ import numpy as np
 from matplotlib import colors
 from matplotlib.ticker import PercentFormatter
 
+print("\n\n\n")
 
 # Creating dataset
 np.random.seed(23685752)
