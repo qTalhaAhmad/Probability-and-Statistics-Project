@@ -11,8 +11,7 @@ from collections import Counter
 
 print("\n\n\n")
 
-# Using All the Columns out of Read Data.
-
+# Reading Data from CSV.
 dataset1 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Rainfall_19012016.csv')
 dataset2 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Temperature_19012016.csv')
 
@@ -22,7 +21,6 @@ print (dataset2)
 print("\n")
 
 # Using Desired Selected Columns out of Read Data.
-
 dataset3 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Rainfall_19012016.csv')
 dataset4 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Temperature_19012016.csv')
 
@@ -74,8 +72,7 @@ tempMax=dataset5['Temperature (Celsius)'].max()
 print ("Maximum Monthly Temprature (Celsius) from 1901-2016 is:",tempMax, "Celsius")
 print("\n")
 
-
-# Taking Minimum and Maximum  Value of Monthly Rainfall from 1901-2016
+# Taking Minimum and Maximum Value of Monthly Rainfall from 1901-2016
 rainMin=dataset5['Rainfall (MM)'].min()
 print ("Minimum Monthly Rainfall (MM) from 1901-2016 is:",rainMin, "MM")
 print("\n")
@@ -83,7 +80,7 @@ rainMax=dataset5['Rainfall (MM)'].max()
 print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:",rainMax, "MM")
 print("\n")
 
-# Taking Minimum and Maximum  Row of Monthly Temprature from 1901-2016
+# Taking Minimum and Maximum Row of Monthly Temprature from 1901-2016
 tempMinRow = dataset4.loc[dataset4['Temperature (Celsius)'] == tempMin]
 print ("Minimum Monthly Temprature (Celsius) from 1901-2016 is:")
 print(tempMinRow)
@@ -93,8 +90,7 @@ print ("Maximum Monthly Temprature (Celsius) from 1901-2016 is:")
 print(tempMaxRow)
 print("\n")
 
-# Taking Minimum and Maximum  Row of Monthly Rainfall from 1901-2016
-
+# Taking Minimum and Maximum Row of Monthly Rainfall from 1901-2016
 rainMinRow = dataset3.loc[dataset3['Rainfall (MM)'] == rainMin]
 print ("Minimum Monthly Rainfall (MM) from 1901-2016 is:")
 print(rainMinRow)
@@ -103,3 +99,4 @@ rainMaxRow = dataset3.loc[dataset3['Rainfall (MM)'] == rainMax]
 print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:")
 print(rainMaxRow)
 print("\n")
+
