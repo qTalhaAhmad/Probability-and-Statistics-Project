@@ -1,15 +1,15 @@
+import csv
 import math
 import statistics
 import scipy.stats
-import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 from matplotlib import colors
-from matplotlib.ticker import PercentFormatter
-import csv 
 from collections import Counter
+import matplotlib.pyplot as plt
+from matplotlib.ticker import PercentFormatter
 
-print("\n\n\n")
+print("\n\n\n") # this is the main code. 
 
 # Reading Data from CSV.
 dataset1 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Rainfall_19012016.csv')
@@ -23,6 +23,8 @@ print("\n")
 # Using Desired Selected Columns out of Read Data.
 dataset3 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Rainfall_19012016.csv')
 dataset4 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Temperature_19012016.csv')
+
+dataset6 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\19012016.csv')
 
 modifieddataset3 = pd.DataFrame(dataset3, columns= ['Rainfall (MM)','Year'])
 modifieddataset4 = pd.DataFrame(dataset4, columns= ['Temperature (Celsius)','Year'])
@@ -99,4 +101,13 @@ rainMaxRow = dataset3.loc[dataset3['Rainfall (MM)'] == rainMax]
 print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:")
 print(rainMaxRow)
 print("\n")
+
+# Building Bar Graph of Monthly Rainfall from 1901-2016
+data = pd.DataFrame(dataset6)
+index = pd.DataFrame(dataset6)
+# Dictionary loaded into a DataFrame       
+dataFrame = pd.DataFrame(data=data, index=index, usecols=(0,5));
+# Draw a vertical bar chart
+dataFrame.plot.bar(rot=15, title="Temprature vs Rainfall comparision by Month");
+plt.show(block=True);
 

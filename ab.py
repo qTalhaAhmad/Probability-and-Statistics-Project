@@ -1,5 +1,5 @@
 
-print("\n\n\n")
+print("\n\n\n") # this code only initializes tkinter python 
 
 import tkinter as tk
 
