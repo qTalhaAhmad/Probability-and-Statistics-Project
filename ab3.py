@@ -38,14 +38,10 @@ def medianTempRainFunc():
     rainMedian=dataset4['Rainfall (MM)'].median()
     print ("Median Monthly Rainfall (MM) from 1901-2016 is:",rainMedian, "MM")
 
-#
-#
-#
-#
 # Descriptive Statistics of Dataset of Temprature and Rainfall from 1901-2016
-describeData=dataset4[['Temperature (Celsius)','Rainfall (MM)']].describe().round()
-print(describeData)
-print("\n")
+def dataDescript():
+    describeData=dataset4[['Temperature (Celsius)','Rainfall (MM)']].describe().round()
+    print(describeData)
 
 # Taking Minimum and Maximum of Monthly Temprature from 1901-2016
 tempMin=dataset4['Temperature (Celsius)'].min()
@@ -91,6 +87,7 @@ def scatterGraphFunc():
 
 meanTempRainFunc()
 medianTempRainFunc()
+dataDescript()
 minMaxTempratureRow()
 minMaxRainfallRow()
 barGraphFunc()
