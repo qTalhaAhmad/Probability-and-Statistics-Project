@@ -9,101 +9,89 @@ from collections import Counter
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
-print("\n\n\n") # this is the main code. 
+print("\n\n") # this is the start of main code. 
 
 # Reading Data from CSV.
-
 dataset1 = pd.read_csv (r'dataset\Rainfall_19012016.csv')
 dataset2 = pd.read_csv (r'dataset\Temperature_19012016.csv')
-
-print (dataset1)
-print("\n")
-print (dataset2)
-print("\n")
-
 dataset3 = pd.read_csv (r'dataset\19012016.csv')
 
-modifieddataset1 = pd.DataFrame(dataset1, columns= ['Rainfall (MM)','Year'])
-modifieddataset2 = pd.DataFrame(dataset2, columns= ['Temperature (Celsius)','Year'])
-
-print (modifieddataset1)
-print("\n")
-print (modifieddataset2)
-print("\n")
-
 # Merging both datasets into 1 with same Month and Year
-dataset5 = pd.merge(dataset1, dataset2, on=["Month","Year"])
-dataset5 = dataset5[["Month", "Year",'Temperature (Celsius)','Rainfall (MM)']]
-print (dataset5)
-print("\n")
+dataset4 = pd.merge(dataset1, dataset2, on=["Month","Year"])
+dataset4 = dataset4[["Month", "Year",'Temperature (Celsius)','Rainfall (MM)']]
+
+print (dataset4); print("\n")
 
 # Taking Mean of Monthly Temprature and Rainfall from 1901-2016
-tempMean=dataset5['Temperature (Celsius)'].mean()
-print ("Average Monthly Temprature (Celsius) from 1901-2016 is:",tempMean, "Celsius")
-print("\n")
-rainMean=dataset5['Rainfall (MM)'].mean()
-print ("Average Monthly Rainfall (MM) from 1901-2016 is:",rainMean, "MM")
-print("\n")
+def meanTempRainFunc():
+    tempMean=dataset4['Temperature (Celsius)'].mean()
+    print ("Average Monthly Temprature (Celsius) from 1901-2016 is:",tempMean, "Celsius")
+    rainMean=dataset4['Rainfall (MM)'].mean()
+    print ("Average Monthly Rainfall (MM) from 1901-2016 is:",rainMean, "MM")
 
 # Taking Median of Monthly Temprature and Rainfall from 1901-2016
-tempMedian=dataset5['Temperature (Celsius)'].median()
-print ("Median Monthly Temprature (Celsius) from 1901-2016 is:",tempMedian, "Celsius")
-print("\n")
-rainMedian=dataset5['Rainfall (MM)'].median()
-print ("Median Monthly Rainfall (MM) from 1901-2016 is:",rainMedian, "MM")
-print("\n")
+def medianTempRainFunc():
+    tempMedian=dataset4['Temperature (Celsius)'].median()
+    print ("Median Monthly Temprature (Celsius) from 1901-2016 is:",tempMedian, "Celsius")
+    rainMedian=dataset4['Rainfall (MM)'].median()
+    print ("Median Monthly Rainfall (MM) from 1901-2016 is:",rainMedian, "MM")
 
+#
+#
+#
+#
 # Descriptive Statistics of Dataset of Temprature and Rainfall from 1901-2016
-describeData=dataset5[['Temperature (Celsius)','Rainfall (MM)']].describe().round()
-print(describeData)
-print("\n")
-
-# Descriptive Statistics of Dataset of Temprature and Rainfall from 1901-2016
-describeData=dataset5[['Temperature (Celsius)','Rainfall (MM)']].describe().round()
+describeData=dataset4[['Temperature (Celsius)','Rainfall (MM)']].describe().round()
 print(describeData)
 print("\n")
 
 # Taking Minimum and Maximum of Monthly Temprature from 1901-2016
-tempMin=dataset5['Temperature (Celsius)'].min()
-print ("Minimum Monthly Temprature (Celsius) from 1901-2016 is:",tempMin, "Celsius")
-print("\n")
-tempMax=dataset5['Temperature (Celsius)'].max()
-print ("Maximum Monthly Temprature (Celsius) from 1901-2016 is:",tempMax, "Celsius")
-print("\n")
+tempMin=dataset4['Temperature (Celsius)'].min()
+tempMax=dataset4['Temperature (Celsius)'].max()
 
 # Taking Minimum and Maximum Value of Monthly Rainfall from 1901-2016
-rainMin=dataset5['Rainfall (MM)'].min()
-print ("Minimum Monthly Rainfall (MM) from 1901-2016 is:",rainMin, "MM")
-print("\n")
-rainMax=dataset5['Rainfall (MM)'].max()
-print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:",rainMax, "MM")
-print("\n")
+rainMin=dataset4['Rainfall (MM)'].min()
+rainMax=dataset4['Rainfall (MM)'].max()
 
 # Taking Minimum and Maximum Row of Monthly Temprature from 1901-2016
-tempMinRow = dataset2.loc[dataset2['Temperature (Celsius)'] == tempMin]
-print ("Minimum Monthly Temprature (Celsius) from 1901-2016 is:")
-print(tempMinRow)
-print("\n")
-tempMaxRow = dataset2.loc[dataset2['Temperature (Celsius)'] == tempMax]
-print ("Maximum Monthly Temprature (Celsius) from 1901-2016 is:")
-print(tempMaxRow)
-print("\n")
+def minMaxTempratureRow():
+    tempMinRow = dataset2.loc[dataset2['Temperature (Celsius)'] == tempMin]
+    print ("Minimum Monthly Temprature (Celsius) from 1901-2016 is:")
+    print(tempMinRow)
+    print("\n")
+    tempMaxRow = dataset2.loc[dataset2['Temperature (Celsius)'] == tempMax]
+    print ("Maximum Monthly Temprature (Celsius) from 1901-2016 is:")
+    print(tempMaxRow)
+
 
 # Taking Minimum and Maximum Row of Monthly Rainfall from 1901-2016
-rainMinRow = dataset1.loc[dataset1['Rainfall (MM)'] == rainMin]
-print ("Minimum Monthly Rainfall (MM) from 1901-2016 is:")
-print(rainMinRow)
-print("\n")
-rainMaxRow = dataset1.loc[dataset1['Rainfall (MM)'] == rainMax]
-print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:")
-print(rainMaxRow)
-print("\n")
+def minMaxRainfallRow():
+    rainMinRow = dataset1.loc[dataset1['Rainfall (MM)'] == rainMin]
+    print ("Minimum Monthly Rainfall (MM) from 1901-2016 is:")
+    print(rainMinRow)
+    print("\n")
+    rainMaxRow = dataset1.loc[dataset1['Rainfall (MM)'] == rainMax]
+    print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:")
+    print(rainMaxRow)
 
 # Rainfall on X, Temprature on Y, Bar Graph, Shows a trend.
-dataset3.plot.bar(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
-plt.show()
+def barGraphFunc():
+    dataset3.plot.bar(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
+    plt.show()
 
 # Rainfall on X, Temprature on Y, Scatter Plot, Shows a trend.
-dataset3.plot.scatter(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
-plt.show()
+def scatterGraphFunc():
+    dataset3.plot.scatter(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
+    plt.show()
 
+meanTempRainFunc()
+medianTempRainFunc()
+minMaxTempratureRow()
+minMaxRainfallRow()
+barGraphFunc()
+scatterGraphFunc()
+
+#distribution -- analysis
+#regression -- prediction
+
+print("\n\n") # this is the end of  main code. 
