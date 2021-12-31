@@ -13,9 +13,6 @@ print("\n\n\n") # this is the main code.
 
 # Reading Data from CSV.
 
-##D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\
-##D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\
-
 dataset1 = pd.read_csv (r'dataset\Rainfall_19012016.csv')
 dataset2 = pd.read_csv (r'dataset\Temperature_19012016.csv')
 
