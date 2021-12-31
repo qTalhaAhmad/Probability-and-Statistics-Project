@@ -108,7 +108,5 @@ dataset7.plot.bar(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
 plt.show()
 
 # Rainfall on X, Temprature on Y, Scatter Plot, Shows a trend.
-dataset7.plot.scatter(x = 'Rainfall (MM)', y = 'Temperature (Celsius)'))
+dataset7.plot.scatter(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
 plt.show()
-
-

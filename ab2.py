@@ -69,3 +69,4 @@ plt.title('Customized histogram')
 
 # Show plot
 plt.show()
+
