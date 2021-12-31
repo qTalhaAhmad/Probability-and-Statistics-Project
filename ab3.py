@@ -9,7 +9,9 @@ from collections import Counter
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
+#
 print("\n\n") # this is the start of main code. 
+#
 
 # Reading Data from CSV.
 dataset1 = pd.read_csv (r'dataset\Rainfall_19012016.csv')
@@ -84,6 +86,9 @@ def scatterGraphFunc():
     dataset3.plot.scatter(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
     plt.show()
 
+#distribution -- analysis
+#regression -- prediction
+
 meanTempRainFunc()
 medianTempRainFunc()
 minMaxTempratureRow()
@@ -91,7 +96,6 @@ minMaxRainfallRow()
 barGraphFunc()
 scatterGraphFunc()
 
-#distribution -- analysis
-#regression -- prediction
-
+#
 print("\n\n") # this is the end of  main code. 
+#
