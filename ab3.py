@@ -12,27 +12,26 @@ from matplotlib.ticker import PercentFormatter
 print("\n\n\n") # this is the main code. 
 
 # Reading Data from CSV.
-dataset1 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Rainfall_19012016.csv')
-dataset2 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Temperature_19012016.csv')
+
+##D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\
+##D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\
+
+dataset1 = pd.read_csv (r'dataset\Rainfall_19012016.csv')
+dataset2 = pd.read_csv (r'dataset\Temperature_19012016.csv')
 
 print (dataset1)
 print("\n")
 print (dataset2)
 print("\n")
 
-# Using Desired Selected Columns out of Read Data.
-dataset3 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Rainfall_19012016.csv')
-dataset4 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\Temperature_19012016.csv')
+dataset3 = pd.read_csv (r'dataset\19012016.csv')
 
-dataset6 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\19012016.csv')
-dataset7 = pd.read_csv (r'D:\Study\FAST CFD\Semester 5\MT2005-Probability and Statistics\Prob Project\dataset\19012016_2.csv')
+modifieddataset1 = pd.DataFrame(dataset1, columns= ['Rainfall (MM)','Year'])
+modifieddataset2 = pd.DataFrame(dataset2, columns= ['Temperature (Celsius)','Year'])
 
-modifieddataset3 = pd.DataFrame(dataset3, columns= ['Rainfall (MM)','Year'])
-modifieddataset4 = pd.DataFrame(dataset4, columns= ['Temperature (Celsius)','Year'])
-
-print (modifieddataset3)
+print (modifieddataset1)
 print("\n")
-print (modifieddataset4)
+print (modifieddataset2)
 print("\n")
 
 # Merging both datasets into 1 with same Month and Year
@@ -84,29 +83,30 @@ print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:",rainMax, "MM")
 print("\n")
 
 # Taking Minimum and Maximum Row of Monthly Temprature from 1901-2016
-tempMinRow = dataset4.loc[dataset4['Temperature (Celsius)'] == tempMin]
+tempMinRow = dataset2.loc[dataset2['Temperature (Celsius)'] == tempMin]
 print ("Minimum Monthly Temprature (Celsius) from 1901-2016 is:")
 print(tempMinRow)
 print("\n")
-tempMaxRow = dataset4.loc[dataset4['Temperature (Celsius)'] == tempMax]
+tempMaxRow = dataset2.loc[dataset2['Temperature (Celsius)'] == tempMax]
 print ("Maximum Monthly Temprature (Celsius) from 1901-2016 is:")
 print(tempMaxRow)
 print("\n")
 
 # Taking Minimum and Maximum Row of Monthly Rainfall from 1901-2016
-rainMinRow = dataset3.loc[dataset3['Rainfall (MM)'] == rainMin]
+rainMinRow = dataset1.loc[dataset1['Rainfall (MM)'] == rainMin]
 print ("Minimum Monthly Rainfall (MM) from 1901-2016 is:")
 print(rainMinRow)
 print("\n")
-rainMaxRow = dataset3.loc[dataset3['Rainfall (MM)'] == rainMax]
+rainMaxRow = dataset1.loc[dataset1['Rainfall (MM)'] == rainMax]
 print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:")
 print(rainMaxRow)
 print("\n")
 
 # Rainfall on X, Temprature on Y, Bar Graph, Shows a trend.
-dataset7.plot.bar(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
+dataset3.plot.bar(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
 plt.show()
 
 # Rainfall on X, Temprature on Y, Scatter Plot, Shows a trend.
-dataset7.plot.scatter(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
+dataset3.plot.scatter(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
 plt.show()
+
