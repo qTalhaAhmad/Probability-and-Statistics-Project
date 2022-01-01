@@ -35,6 +35,6 @@ barButton.bind('<Enter>', OnHoverBar)
 barButton.bind('<Leave>', OnLeaveBar)
 barButton.place(x=375, y= 300)
 
-root.geometry("600x400")
+root.state('zoomed') # graphs much easier to understand in fullscreen mode, also looks better.
+#root.geometry("600x400")
 root.mainloop()
-
