@@ -24,7 +24,6 @@ fig, axs = plt.subplots(1, 1,
 						figsize =(10, 7),
 						tight_layout = True)
 
-
 # Remove axes splines
 for s in ['top', 'bottom', 'left', 'right']:
 	axs.spines[s].set_visible(False)
@@ -69,4 +68,3 @@ plt.title('Customized histogram')
 
 # Show plot
 plt.show()
-
