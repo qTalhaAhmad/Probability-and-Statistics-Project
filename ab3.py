@@ -85,13 +85,13 @@ def scatterGraphFunc():
 #distribution -- analysis
 #regression -- prediction
 
-meanTempRainFunc()
-medianTempRainFunc()
-dataDescript()
-minMaxTempratureRow()
-minMaxRainfallRow()
-barGraphFunc()
-scatterGraphFunc()
+# meanTempRainFunc()
+# medianTempRainFunc()
+# dataDescript()
+# minMaxTempratureRow()
+# minMaxRainfallRow()
+# barGraphFunc()
+# scatterGraphFunc()
 
 #
 print("\n\n") # this is the end of  main code. 
