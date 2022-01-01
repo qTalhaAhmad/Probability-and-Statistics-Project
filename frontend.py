@@ -64,5 +64,4 @@ scatterButton.bind('<Leave>', OnLeaveScatter)
 scatterButton.place(x=975, y= 300)
 
 root.state('zoomed') # graphs much easier to understand in fullscreen mode, also looks better.
-#root.geometry("600x400")
 root.mainloop()
