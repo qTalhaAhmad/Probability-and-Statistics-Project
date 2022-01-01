@@ -161,22 +161,19 @@ def scatterGraphFunc():
 #minMaxRainfallRow();print("\n")
 #avgTMBarG()
 #avgRMBarG()
-
 #tempRainMultiBarChart()
-
 #scatterGraphFunc()
 
-#
-print("\n") # this is the end of  main code. 
-#
-
+#_____________________________________________________________________________________________________________
 #   Data can be editable. At any stage, we can add or delete any values in the data set.
 
 #   Statistical analysis should be consisted of, Graphical and tabular data 
 #   representation, Descriptive Statistical analysis, Probability distributions. 
 #   Finally, modeling and Predictions using Regression Models.
 
-#   Your designed application should be intelligent in doing statistical analysis. The work will be evaluated on following
+#   Your designed application should be intelligent in doing statistical analysis. 
+
+#   The work will be evaluated on following
 #       a. How many appropriate statistical tools have been used?
 #       b. How attractive and intelligent your application is?
 
