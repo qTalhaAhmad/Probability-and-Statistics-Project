@@ -10,12 +10,11 @@ from collections import Counter
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
-#
-print("\n\n") # this is the start of main code. 
-#
+#                        Temprature-Rainfall 1901-2016
+#    19F-0113 (CS),    19F-0171 (CS),      19F-0254 (CS),       19F-0931 (SE)
+#    Talha Ahmad,      Talha Shehroze,     Muhammad Farhan,     Daniyal Ahmed
 
 # Reading Data from CSV.
-
 dataset1 = pd.read_csv(r'dataset\19012016.csv')
 
 # Taking Mean of Monthly Temprature and Rainfall from 1901-2016
@@ -34,8 +33,10 @@ def medianTempRainFunc():
 
 # Descriptive Statistics of Dataset of Temprature and Rainfall from 1901-2016
 def dataDescript():
-    describeData=dataset1[['Temperature (Celsius)','Rainfall (MM)']].describe().round()
-    print(describeData)
+    describeData1=dataset1[['Temperature (Celsius)']].describe().round()
+    print(describeData1)
+    describeData2=dataset1[['Rainfall (MM)']].describe().round()
+    print(describeData2)
 
 # Taking Minimum and Maximum of Monthly Temprature from 1901-2016
 tempMin=dataset1['Temperature (Celsius)'].min()
@@ -133,8 +134,8 @@ def tempRainMultiBarChart():
     plt.show()
 
 # Scatter Plot of Pakistan's Average Rainfall/Month from 1901-2016 (Showing Relation)
-def scatterGraphFunc():        
-    fig = plt.figure()    
+def scatterGraphFunc():
+    fig = plt.figure()
     
     a1 = fig.add_axes([0.1,0.1,0.8,0.8])    
     a1.plot(monthsN, avgTemp, 'ro-')
@@ -152,8 +153,7 @@ def scatterGraphFunc():
 #regression -- prediction
 
 
-### Function Calling
-
+####   Function Calling
 #meanTempRainFunc();print("\n")
 #medianTempRainFunc();print("\n")
 #dataDescript();print("\n")
@@ -161,9 +161,25 @@ def scatterGraphFunc():
 #minMaxRainfallRow();print("\n")
 #avgTMBarG()
 #avgRMBarG()
-tempRainMultiBarChart()
+
+#tempRainMultiBarChart()
+
 #scatterGraphFunc()
 
 #
 print("\n") # this is the end of  main code. 
 #
+
+#   Data can be editable. At any stage, we can add or delete any values in the data set.
+
+#   Statistical analysis should be consisted of, Graphical and tabular data 
+#   representation, Descriptive Statistical analysis, Probability distributions. 
+#   Finally, modeling and Predictions using Regression Models.
+
+#   Your designed application should be intelligent in doing statistical analysis. The work will be evaluated on following
+#       a. How many appropriate statistical tools have been used?
+#       b. How attractive and intelligent your application is?
+
+#   Paste all codes on a word file in fount size 9 and line space 1. Paste screenshots of your application
+#   with different features/results on a word file. 
+#   Finally, your results and recommendation about the data should be detailed pasted on that word file.
