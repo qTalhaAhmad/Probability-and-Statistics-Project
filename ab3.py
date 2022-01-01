@@ -103,20 +103,21 @@ novTempMean=novDataset['Temperature (Celsius)'].mean();    novRainMean=novDatase
 decTempMean=decDataset['Temperature (Celsius)'].mean();    decRainMean=decDataset['Rainfall (MM)'].mean()
 
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-avgTemps = [janTempMean,febTempMean,marTempMean,aprTempMean,mayTempMean,junTempMean,julTempMean,augTempMean,sepTempMean,octTempMean,novTempMean,decTempMean]
+monthsN = [1,2,3,4,5,6,7,8,9,10,11,12]
+avgTemp = [janTempMean,febTempMean,marTempMean,aprTempMean,mayTempMean,junTempMean,julTempMean,augTempMean,sepTempMean,octTempMean,novTempMean,decTempMean]
 avgRain = [janRainMean,febRainMean,marRainMean,aprRainMean,mayRainMean,junRainMean,julRainMean,augRainMean,sepRainMean,octRainMean,novRainMean,decRainMean]
 
-# Pakistan's Average Temprature/Month from 1901-2016
+# Bar Graph of Pakistan's Average Temprature/Month from 1901-2016
 def avgTMG():
     fig = plt.figure()
     ax = fig.add_axes([0.1,0.1,0.8,0.8])    
-    ax.bar(months,avgTemps,color='red')
+    ax.bar(months,avgTemp,color='red')
     plt.xlabel("x - Month")
     plt.ylabel("y - Temprature (°C)")
     plt.title("Pakistan's Average Temprature/Month from 1901-2016")
     plt.show()
 
-# Pakistan's Average Temprature/Month from 1901-2016
+# Bar Graph of Pakistan's Average Rainfall/Month from 1901-2016
 def avgRMG():
     fig = plt.figure()
     ax = fig.add_axes([0.1,0.1,0.8,0.8])
@@ -126,30 +127,25 @@ def avgRMG():
     plt.title("Pakistan's Average Rainfall/Month from 1901-2016")
     plt.show()
 
-# Twin Axes on Mean Rain and Temprature Relation
-def TARTMG():
-    fig = plt.figure()    
-    
-    a1 = fig.add_axes([0.1,0.1,0.8,0.8])    
-    a1.plot(avgTemps, 'go-')
-    #a1.set_xlabel('Months')
-    a1.set_ylabel('Temp (°C)')
-    
-    a2 = a1.twinx()
-    a2.plot(avgRain, 'ro-')
-    a2.set_ylabel('Rain (mm)')
-
-    fig.legend(labels = ('Temp (°C)','Rain (mm)'),loc='upper center')
-    plt.show()
-
 # Rainfall on X, Temprature on Y, Bar Graph, Shows a trend.
 def barGraphFunc():
     dataset3.plot.bar(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
     plt.show()
 
-# Rainfall on X, Temprature on Y, Scatter Plot, Shows a trend.
-def scatterGraphFunc():
-    dataset3.plot.scatter(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
+# Scatter Plot of Pakistan's Average Rainfall/Month from 1901-2016 (Showing Relation)
+def scatterGraphFunc():        
+    fig = plt.figure()    
+    
+    a1 = fig.add_axes([0.1,0.1,0.8,0.8])    
+    a1.plot(monthsN, avgTemp, 'ro-')
+    a1.set_xlabel('Months')    
+    a1.set_ylabel('Temp (°C)')
+    
+    a2 = a1.twinx()
+    a2.plot(monthsN, avgRain, 'go-')
+    a2.set_ylabel('Rain (mm)')
+
+    fig.legend(labels = ('Temp (°C)','Rain (mm)'),loc='upper center')
     plt.show()
 
 #distribution -- analysis
@@ -163,11 +159,12 @@ def scatterGraphFunc():
 # dataDescript()
 # minMaxTempratureRow()
 # minMaxRainfallRow()
-# avgTMG()
-# avgRMG()
-TARTMG()
+
+### avgTMG()
+### avgRMG()
+
 # barGraphFunc()
-# scatterGraphFunc()
+scatterGraphFunc()
 
 #
 print("\n") # this is the end of  main code. 
