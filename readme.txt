@@ -11,8 +11,3 @@ https://www.kaggle.com/zusmani/rainfall-in-pakistan [1392 rows x 3 columns]
 Columns are as: Temperature - (Celsius) | Year | Month
 
 Kaggle Data has been scrapped from Pakistan Meteorological Department archives.
-
-
-to be renamed in final version.
-ab.py front-end
-ab3.py back-end
