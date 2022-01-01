@@ -16,5 +16,3 @@ Kaggle Data has been scrapped from Pakistan Meteorological Department archives.
 to be renamed in final version.
 ab.py front-end
 ab3.py back-end
-
-ab2.py study/experimental file
