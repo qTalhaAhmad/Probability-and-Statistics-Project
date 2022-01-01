@@ -4,16 +4,19 @@ from backend import *
 root = Tk(className="Rainfall Graphs Data")
 
 def tempBarButtonClick():
-    avgTMBarG()    
+    avgTMBarG()
 
-def rainBarButtonClick():    
+def rainBarButtonClick():
     avgRMBarG()
 
-def multiBarButtonClick():    
+def multiBarButtonClick():
     tempRainMultiBarChart()
 
 def scatterButtonClick():
     scatterGraphFunc()
+
+def boxPlotButtonClick():
+    boxPlotTempRain()
 
 def OnHoverScatter(event):
     scatterButton.config(bg='black', fg='white')
@@ -39,6 +42,12 @@ def OnHoverMultiBar(event):
 def OnLeaveMultiBar(event):
     multiBarButton.config(bg='blue', fg='black')
 
+def OnHoverBoxPlot(event):
+    boxPlotButton.config(bg='black', fg='white')
+
+def OnLeaveBoxPlot(event):
+    boxPlotButton.config(bg='blue', fg='black')
+
 backgroundImage = PhotoImage(file="images/background.png")     # update background image with some 1920x1080 pic
 
 backgroundLabel = Label( root, image = backgroundImage)
@@ -63,6 +72,11 @@ scatterButton = Button(root,text="Click To Display Scatter Graph",command=scatte
 scatterButton.bind('<Enter>', OnHoverScatter)
 scatterButton.bind('<Leave>', OnLeaveScatter)
 scatterButton.place(x=975, y= 300)
+
+boxPlotButton = Button(root,text="Click To Display Box Plot",command=boxPlotButtonClick, bg='blue', relief='groove')
+boxPlotButton.bind('<Enter>', OnHoverBoxPlot)
+boxPlotButton.bind('<Leave>', OnLeaveBoxPlot)
+boxPlotButton.place(x=1275, y= 300)
 
 root.state('zoomed') # graphs much easier to understand in fullscreen mode, also looks better.
 root.mainloop()

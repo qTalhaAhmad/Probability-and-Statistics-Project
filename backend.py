@@ -161,31 +161,33 @@ def scatterGraphFunc():
     wm.window.state('zoomed')
     plt.show()
 
-fig4 = plt.figure()
-ax = fig4.add_axes([0.1,0.1,0.8,0.8])
+def boxPlotTempRain():
+    fig4 = plt.figure()
+    ax = fig4.add_axes([0.1,0.1,0.8,0.8])
 
-ax.set_xticklabels(['Temprature', 'Rain'])
-bp = ax.boxplot(avgTRdata)
-plt.show()
+    ax.set_xticklabels(['Temprature', 'Rain'])
+    bp = ax.boxplot(avgTRdata)
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.show()
 
-#fig5 = plt.figure()
-#ax = fig5.add_axes([0.1,0.1,0.8,0.8])
-#bp = ax.boxplot(avgRain)
-#plt.show()
+## distribution -- analysis
 
-#distribution -- analysis
-#regression -- prediction
+## regression -- prediction
+
 
 ####   Function Calling
-#meanTempRainFunc();print("\n")
-#medianTempRainFunc();print("\n")
-#dataDescript();print("\n")
-#minMaxTempratureRow();print("\n")
-#minMaxRainfallRow();print("\n")
-#avgTMBarG()
-#avgRMBarG()
-#tempRainMultiBarChart()
-#scatterGraphFunc()
+# meanTempRainFunc();print("\n")
+# medianTempRainFunc();print("\n")
+# dataDescript();print("\n")
+# minMaxTempratureRow();print("\n")
+# minMaxRainfallRow();print("\n")
+# avgTMBarG()
+# avgRMBarG()
+# tempRainMultiBarChart()
+# boxPlotTempRain()
+# scatterGraphFunc()
+# boxPlotTempRain()
 
 #_____________________________________________________________________________________________________________
 #   Data can be editable. At any stage, we can add or delete any values in the data set.
