@@ -10,9 +10,9 @@ from collections import Counter
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
-#                        Temprature-Rainfall 1901-2016
+#                      --Temprature-Rainfall 1901-2016--
 #    19F-0113 (CS),    19F-0171 (CS),      19F-0254 (CS),       19F-0931 (SE)
-#    Talha Ahmad,      Talha Shehroze,     Muhammad Farhan,     Daniyal Ahmed
+#    Talha Ahmad,      M. Talha Shehroze,     Muhammad Farhan,     Daniyal Ahmed
 
 # Reading Data from CSV.
 dataset1 = pd.read_csv(r'dataset\19012016.csv')
@@ -110,34 +110,41 @@ def avgTMBarG():
     plt.xlabel("x - Month")
     plt.ylabel("y - Temprature (°C)")
     plt.title("Pakistan's Average Temprature/Month from 1901-2016")
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
     plt.show()
 
 # Bar Graph of Pakistan's Average Rainfall/Month from 1901-2016
 def avgRMBarG():
-    fig = plt.figure()
-    ax = fig.add_axes([0.1,0.1,0.8,0.8])
+    fig1 = plt.figure()
+    ax = fig1.add_axes([0.1,0.1,0.8,0.8])
     ax.bar(months2,avgRain2,color='green')
     plt.xlabel("x - Month")
     plt.ylabel("y - Rainfall (mm)")
     plt.title("Pakistan's Average Rainfall/Month from 1901-2016")
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
     plt.show()
 
 def tempRainMultiBarChart():
+    fig2 = plt.figure()
+    ax = fig2.add_axes([0.1,0.1,0.8,0.8])
     X_axis = np.arange(len(months))
     plt.bar(X_axis - 0.2, avgTemp, 0.4, label = 'Temp (°C)', color='red')
     plt.bar(X_axis + 0.2, avgRain, 0.4, label = 'Rain (mm)', color='green')
     plt.xticks(X_axis, months)
     plt.xlabel("Months")
     plt.ylabel("Temp (°C), Rain (mm)")
-    plt.title("Months/Temprature in each Month")
+    plt.title("Pakistan's Temprature/Month in each Month")
     plt.legend()
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
     plt.show()
 
 # Scatter Plot of Pakistan's Average Rainfall/Month from 1901-2016 (Showing Relation)
 def scatterGraphFunc():
-    fig = plt.figure()
-    
-    a1 = fig.add_axes([0.1,0.1,0.8,0.8])    
+    fig3 = plt.figure()    
+    a1 = fig3.add_axes([0.1,0.1,0.8,0.8])    
     a1.plot(monthsN, avgTemp, 'ro-')
     a1.set_xlabel('Months')    
     a1.set_ylabel('Temp (°C)')
@@ -146,12 +153,14 @@ def scatterGraphFunc():
     a2.plot(monthsN, avgRain, 'go-')
     a2.set_ylabel('Rain (mm)')
 
-    fig.legend(labels = ('Temp (°C)','Rain (mm)'),loc='upper center')
+    fig3.legend(labels = ('Temp (°C)','Rain (mm)'),loc='upper center')
+    plt.title("Relationship b/w Pakistan's Rainfall/Temprature in each Month")
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
     plt.show()
 
 #distribution -- analysis
 #regression -- prediction
-
 
 ####   Function Calling
 #meanTempRainFunc();print("\n")
