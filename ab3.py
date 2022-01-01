@@ -17,7 +17,6 @@ print("\n\n") # this is the start of main code.
 # Reading Data from CSV.
 
 dataset1 = pd.read_csv(r'dataset\19012016.csv')
-#dataset3 = pd.read_csv (r'dataset\19012016.csv', usecols = ['Temperature (Celsius)','Rainfall (MM)'])
 
 # Taking Mean of Monthly Temprature and Rainfall from 1901-2016
 def meanTempRainFunc():
@@ -99,8 +98,11 @@ monthsN = [1,2,3,4,5,6,7,8,9,10,11,12]
 avgTemp = [janTempMean,febTempMean,marTempMean,aprTempMean,mayTempMean,junTempMean,julTempMean,augTempMean,sepTempMean,octTempMean,novTempMean,decTempMean]
 avgRain = [janRainMean,febRainMean,marRainMean,aprRainMean,mayRainMean,junRainMean,julRainMean,augRainMean,sepRainMean,octRainMean,novRainMean,decRainMean]
 
+months2 = ['December', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November']
+avgRain2 = [decRainMean,janRainMean,febRainMean,marRainMean,aprRainMean,mayRainMean,junRainMean,julRainMean,augRainMean,sepRainMean,octRainMean,novRainMean]
+
 # Bar Graph of Pakistan's Average Temprature/Month from 1901-2016
-def avgTMG():
+def avgTMBarG():
     fig = plt.figure()
     ax = fig.add_axes([0.1,0.1,0.8,0.8])    
     ax.bar(months,avgTemp,color='red')
@@ -110,13 +112,24 @@ def avgTMG():
     plt.show()
 
 # Bar Graph of Pakistan's Average Rainfall/Month from 1901-2016
-def avgRMG():
+def avgRMBarG():
     fig = plt.figure()
     ax = fig.add_axes([0.1,0.1,0.8,0.8])
-    ax.bar(months,avgRain,color='green')
+    ax.bar(months2,avgRain2,color='green')
     plt.xlabel("x - Month")
     plt.ylabel("y - Rainfall (mm)")
     plt.title("Pakistan's Average Rainfall/Month from 1901-2016")
+    plt.show()
+
+def tempRainMultiBarChart():
+    X_axis = np.arange(len(months))
+    plt.bar(X_axis - 0.2, avgTemp, 0.4, label = 'Temp (°C)', color='red')
+    plt.bar(X_axis + 0.2, avgRain, 0.4, label = 'Rain (mm)', color='green')
+    plt.xticks(X_axis, months)
+    plt.xlabel("Months")
+    plt.ylabel("Temp (°C), Rain (mm)")
+    plt.title("Months/Temprature in each Month")
+    plt.legend()
     plt.show()
 
 # Scatter Plot of Pakistan's Average Rainfall/Month from 1901-2016 (Showing Relation)
@@ -141,13 +154,14 @@ def scatterGraphFunc():
 
 ### Function Calling
 
-meanTempRainFunc();print("\n")
-medianTempRainFunc();print("\n")
-dataDescript();print("\n")
-minMaxTempratureRow();print("\n")
-minMaxRainfallRow();print("\n")
-#avgTMG()
-#avgRMG()
+#meanTempRainFunc();print("\n")
+#medianTempRainFunc();print("\n")
+#dataDescript();print("\n")
+#minMaxTempratureRow();print("\n")
+#minMaxRainfallRow();print("\n")
+#avgTMBarG()
+#avgRMBarG()
+tempRainMultiBarChart()
 #scatterGraphFunc()
 
 #

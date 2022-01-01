@@ -6,10 +6,10 @@ def scatterButtonClick():
     scatterGraphFunc()
 
 def tempBarButtonClick():
-    avgTMG()    
+    avgTMBarG()    
 
 def rainBarButtonClick():    
-    avgRMG()
+    avgRMBarG()
 
 def OnHoverScatter(event):
     scatterButton.config(bg='black', fg='white')
