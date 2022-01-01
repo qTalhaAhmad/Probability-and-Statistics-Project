@@ -164,7 +164,6 @@ def scatterGraphFunc():
 def boxPlotTempRain():
     fig4 = plt.figure()
     ax = fig4.add_axes([0.1,0.1,0.8,0.8])
-
     ax.set_xticklabels(['Temprature', 'Rain'])
     bp = ax.boxplot(avgTRdata)
     wm = plt.get_current_fig_manager()

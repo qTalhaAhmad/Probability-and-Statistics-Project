@@ -58,7 +58,7 @@ tempBarButton.bind('<Enter>', OnHoverBarRain)
 tempBarButton.bind('<Leave>', OnLeaveBarRain)
 tempBarButton.place(x=75, y= 300)
 
-rainBarButton = Button(root,text="Click To DRisplay Rain Bar Graph",command=rainBarButtonClick, bg='blue', relief='groove')
+rainBarButton = Button(root,text="Click To Display Rain Bar Graph",command=rainBarButtonClick, bg='blue', relief='groove')
 rainBarButton.bind('<Leave>', OnLeaveBarTemp)
 rainBarButton.bind('<Enter>', OnHoverBarTemp)
 rainBarButton.place(x=375, y= 300)
