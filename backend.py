@@ -99,6 +99,8 @@ monthsN = [1,2,3,4,5,6,7,8,9,10,11,12]
 avgTemp = [janTempMean,febTempMean,marTempMean,aprTempMean,mayTempMean,junTempMean,julTempMean,augTempMean,sepTempMean,octTempMean,novTempMean,decTempMean]
 avgRain = [janRainMean,febRainMean,marRainMean,aprRainMean,mayRainMean,junRainMean,julRainMean,augRainMean,sepRainMean,octRainMean,novRainMean,decRainMean]
 
+avgTRdata = [avgTemp,avgRain]
+
 months2 = ['December', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November']
 avgRain2 = [decRainMean,janRainMean,febRainMean,marRainMean,aprRainMean,mayRainMean,junRainMean,julRainMean,augRainMean,sepRainMean,octRainMean,novRainMean]
 
@@ -144,7 +146,7 @@ def tempRainMultiBarChart():
 # Scatter Plot of Pakistan's Average Rainfall/Month from 1901-2016 (Showing Relation)
 def scatterGraphFunc():
     fig3 = plt.figure()    
-    a1 = fig3.add_axes([0.1,0.1,0.8,0.8])    
+    a1 = fig3.add_axes([0.1,0.1,0.8,0.8])
     a1.plot(monthsN, avgTemp, 'ro-')
     a1.set_xlabel('Months')    
     a1.set_ylabel('Temp (°C)')
@@ -158,6 +160,18 @@ def scatterGraphFunc():
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')
     plt.show()
+
+fig4 = plt.figure()
+ax = fig4.add_axes([0.1,0.1,0.8,0.8])
+
+ax.set_xticklabels(['Temprature', 'Rain'])
+bp = ax.boxplot(avgTRdata)
+plt.show()
+
+#fig5 = plt.figure()
+#ax = fig5.add_axes([0.1,0.1,0.8,0.8])
+#bp = ax.boxplot(avgRain)
+#plt.show()
 
 #distribution -- analysis
 #regression -- prediction
