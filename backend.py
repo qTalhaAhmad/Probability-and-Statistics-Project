@@ -200,6 +200,8 @@ def boxPlotTempRain():
 
 ## distribution -- analysis
 
+## covariance / correlation
+
 ## regression -- prediction
 
 
@@ -235,3 +237,27 @@ def boxPlotTempRain():
 #   Paste all codes on a word file in fount size 9 and line space 1. Paste screenshots of your application
 #   with different features/results on a word file. 
 #   Finally, your results and recommendation about the data should be detailed pasted on that word file.
+
+
+
+
+# Probability Distribution 
+
+# --Discrete
+# 
+# ----Binomial
+# ----Poisson
+# ----Hypergeometric
+# 
+# --Continuous
+# 
+# ----Uniform
+# ----Normal
+# 
+# Covariance
+# Correlation
+# 
+# Deterministic
+# Probabilistic
+
+# Error term
