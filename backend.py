@@ -118,12 +118,46 @@ octTempMean=octDataset['Temperature (Celsius)'].mean();    octRainMean=octDatase
 novTempMean=novDataset['Temperature (Celsius)'].mean();    novRainMean=novDataset['Rainfall (MM)'].mean()
 decTempMean=decDataset['Temperature (Celsius)'].mean();    decRainMean=decDataset['Rainfall (MM)'].mean()
 
+
+# Reading Data from CSV by Decades.
+dataset1903 = dataset1.loc[dataset1['Year'] == 1903]
+dataset1913 = dataset1.loc[dataset1['Year'] == 1913]
+dataset1923 = dataset1.loc[dataset1['Year'] == 1923]
+dataset1933 = dataset1.loc[dataset1['Year'] == 1933]
+dataset1943 = dataset1.loc[dataset1['Year'] == 1943]
+dataset1953 = dataset1.loc[dataset1['Year'] == 1953]
+dataset1963 = dataset1.loc[dataset1['Year'] == 1963]
+dataset1973 = dataset1.loc[dataset1['Year'] == 1973]
+dataset1983 = dataset1.loc[dataset1['Year'] == 1983]
+dataset1993 = dataset1.loc[dataset1['Year'] == 1993]
+dataset2003 = dataset1.loc[dataset1['Year'] == 2003]
+dataset2013 = dataset1.loc[dataset1['Year'] == 2013]
+
+# Calculating Mean Temprature and Rain by Decades.
+TempMean1903=dataset1903['Temperature (Celsius)'].mean();    RainMean1903=dataset1903['Rainfall (MM)'].mean()
+TempMean1913=dataset1913['Temperature (Celsius)'].mean();    RainMean1913=dataset1913['Rainfall (MM)'].mean()
+TempMean1923=dataset1923['Temperature (Celsius)'].mean();    RainMean1923=dataset1923['Rainfall (MM)'].mean()
+TempMean1933=dataset1933['Temperature (Celsius)'].mean();    RainMean1933=dataset1933['Rainfall (MM)'].mean()
+TempMean1943=dataset1943['Temperature (Celsius)'].mean();    RainMean1943=dataset1943['Rainfall (MM)'].mean()
+TempMean1953=dataset1953['Temperature (Celsius)'].mean();    RainMean1953=dataset1953['Rainfall (MM)'].mean()
+TempMean1963=dataset1963['Temperature (Celsius)'].mean();    RainMean1963=dataset1963['Rainfall (MM)'].mean()
+TempMean1973=dataset1973['Temperature (Celsius)'].mean();    RainMean1973=dataset1973['Rainfall (MM)'].mean()
+TempMean1983=dataset1983['Temperature (Celsius)'].mean();    RainMean1983=dataset1983['Rainfall (MM)'].mean()
+TempMean1993=dataset1993['Temperature (Celsius)'].mean();    RainMean1993=dataset1993['Rainfall (MM)'].mean()
+TempMean2003=dataset2003['Temperature (Celsius)'].mean();    RainMean2003=dataset2003['Rainfall (MM)'].mean()
+TempMean2013=dataset2013['Temperature (Celsius)'].mean();    RainMean2013=dataset2013['Rainfall (MM)'].mean()
+
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 monthsN = [1,2,3,4,5,6,7,8,9,10,11,12]
 avgTemp = [janTempMean,febTempMean,marTempMean,aprTempMean,mayTempMean,junTempMean,julTempMean,augTempMean,sepTempMean,octTempMean,novTempMean,decTempMean]
 avgRain = [janRainMean,febRainMean,marRainMean,aprRainMean,mayRainMean,junRainMean,julRainMean,augRainMean,sepRainMean,octRainMean,novRainMean,decRainMean]
 
+yearsN = [1903,1913,1923,1933,1943,1953,1963,1973,1983,1993,2003,2013]
+avgTempDecade = [TempMean1903,TempMean1913,TempMean1923,TempMean1933,TempMean1943,TempMean1953,TempMean1963,TempMean1973,TempMean1983,TempMean1993,TempMean2003,TempMean2013]
+avgRainDecade = [RainMean1903,RainMean1913,RainMean1923,RainMean1933,RainMean1943,RainMean1953,RainMean1963,RainMean1973,RainMean1983,RainMean1993,RainMean2003,RainMean2013]
+
 avgTRdata = [avgTemp,avgRain]
+avgTRdataDecade = [avgTempDecade,avgRainDecade]
 
 months2 = [ 'November','December', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October']
 avgRain2 = [novRainMean,decRainMean,janRainMean,febRainMean,marRainMean,aprRainMean,mayRainMean,junRainMean,julRainMean,augRainMean,sepRainMean,octRainMean]
@@ -181,6 +215,19 @@ def scatterTempGraphFunc():
     wm.window.state('zoomed')
     plt.show()
 
+def scatterTempGraphFuncDecade():
+    fig10 = plt.figure()    
+    a1 = fig10.add_axes([0.1,0.1,0.8,0.8])
+    a1.plot(yearsN, avgTempDecade, 'r-')
+    a1.set_xlabel('Years')    
+    a1.set_ylabel('Temp (°C)')
+    
+    #fig3.legend(labels = ('Temp (°C)'),loc='upper center')
+    plt.title("Pakistan's Temprature in each Decade from 1900-2010")
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.show()
+
 # Scatter Plot of Pakistan's Average Temprature/Month from 1901-2016 (Showing Relation)
 def scatterRainGraphFunc():
     fig5 = plt.figure()    
@@ -192,6 +239,20 @@ def scatterRainGraphFunc():
     
     #fig5.legend(labels = ('Rain (mm)'),loc='upper center')
     plt.title("Pakistan's Rainfall in each Month")
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.show()
+
+def scatterRainGraphFuncDecade():
+    fig15 = plt.figure()    
+    a1 = fig15.add_axes([0.1,0.1,0.8,0.8])
+    
+    a1.plot(yearsN, avgRainDecade, 'g-')
+    a1.set_xlabel('Years')    
+    a1.set_ylabel('Rain (mm)')
+    
+    #fig5.legend(labels = ('Rain (mm)'),loc='upper center')
+    plt.title("Pakistan's Rainfall in each Decade from 1900-2010")
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')
     plt.show()
@@ -214,6 +275,24 @@ def scatterMultiGraphFunc():
     wm.window.state('zoomed')
     plt.show()
 
+# Scatter Plot of Pakistan's Average Rainfall-Temprature/Month from 1901-2016 (Showing Relation)
+def scatterMultiGraphFuncDecade():
+    fig16 = plt.figure()    
+    a1 = fig16.add_axes([0.1,0.1,0.8,0.8])
+    a1.plot(yearsN, avgTempDecade, 'ro-')
+    a1.set_xlabel('Years')    
+    a1.set_ylabel('Temp (°C)')
+    
+    a2 = a1.twinx()
+    a2.plot(yearsN, avgRainDecade, 'go-')
+    a2.set_ylabel('Rain (mm)')
+
+    fig16.legend(labels = ('Temp (°C)','Rain (mm)'),loc='upper center')
+    plt.title("Relationship b/w Pakistan's Rainfall/Temprature in each Decade from 1900-2010")
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.show()
+
 def boxPlotTempRain():
     fig4 = plt.figure()
     ax = fig4.add_axes([0.1,0.1,0.8,0.8])
@@ -223,6 +302,7 @@ def boxPlotTempRain():
     wm.window.state('zoomed')
     plt.show()
 
+
 ## distribution -- analysis
 
 ## covariance / correlation
@@ -230,7 +310,7 @@ def boxPlotTempRain():
 ## regression -- prediction
 
 
-###              FunctionCalls()
+###     FunctionCalls()
 
 file = open("dataset/statstext.txt","w") 
 meanTempRainFunc()
@@ -240,6 +320,12 @@ minMaxTempratureRow()
 minMaxRainfallRow()
 file.close()
 #    avgTMBarG()
+#    avgTMBarGDecade()
+
+#scatterTempGraphFuncDecade()
+#scatterRainGraphFuncDecade()
+#scatterMultiGraphFuncDecade()
+
 #    avgRMBarG()
 #    tempRainMultiBarChart()
 #    boxPlotTempRain()
@@ -248,28 +334,14 @@ file.close()
 #    scatterMultiGraphFunc()
 #    boxPlotTempRain()
 
-#_____________________________________________________________________________________________________________
-#   Data can be editable. At any stage, we can add or delete any values in the data set.
+#__________________E____N____D________O__F________P___R___O___G___R___A___M___________________________________
 
-#   Statistical analysis should be consisted of, Graphical and tabular data 
-#   representation, Descriptive Statistical analysis, Probability distributions. 
+#   Probability distributions. 
 #   Finally, modeling and Predictions using Regression Models.
-
-#   Your designed application should be intelligent in doing statistical analysis. 
-
-#   The work will be evaluated on following
-#       a. How many appropriate statistical tools have been used?
-#       b. How attractive and intelligent your application is?
-
-
-
 
 #   Paste all codes on a word file in fount size 9 and line space 1. Paste screenshots of your application
 #   with different features/results on a word file. 
 #   Finally, your results and recommendation about the data should be detailed pasted on that word file.
-
-
-
 
 
 # Probability Distribution 

@@ -18,14 +18,23 @@ def rainBarButtonClick():
 def multiBarButtonClick():
     tempRainMultiBarChart()
 
-def scatterMultiButtonClick():
-    scatterMultiGraphFunc()
-
 def scatterTempButtonClick():
     scatterTempGraphFunc()
 
+def scatterTempDecadeButtonClick():
+    scatterTempGraphFuncDecade()
+
 def scatterRainButtonClick():    
     scatterRainGraphFunc()
+
+def scatterRainDecadeButtonClick():    
+    scatterRainGraphFuncDecade()
+
+def scatterMultiButtonClick():
+    scatterMultiGraphFunc()
+
+def scatterMultiDecadeButtonClick():
+    scatterMultiGraphFuncDecade()
 
 def boxPlotButtonClick():
     boxPlotTempRain()
@@ -67,6 +76,24 @@ def OnHoverRainScatter(event):
 def OnLeaveRainScatter(event):
    scatterRainButton.config(bg='green', fg='black')
 
+def OnHoverScatterDecade(event):
+    scatterButtonDecade.config(bg='black', fg='white')
+
+def OnLeaveScatterDecade(event):
+    scatterButtonDecade.config(bg='green', fg='black')
+
+def OnHoverTempScatterDecade(event):
+    scatterTempButtonDecade.config(bg='black', fg='white')
+
+def OnLeaveTempScatterDecade(event):
+    scatterTempButtonDecade.config(bg='green', fg='black')
+
+def OnHoverRainScatterDecade(event):
+    scatterRainButtonDecade.config(bg='black', fg='white')
+
+def OnLeaveRainScatterDecade(event):
+   scatterRainButtonDecade.config(bg='green', fg='black')
+
 def OnHoverBarTemp(event):
     rainBarButton.config(bg='black', fg='white')    
 
@@ -103,53 +130,71 @@ newBackground = ImageTk.PhotoImage(resizedBackground)
 backgroundLabel = Label( root, image =newBackground)
 backgroundLabel.place(x = 0, y = 0)
 
+TextButton = Button(root,text="Text Stats",width=42,height=2,command=textbuttonClick, bg='green', relief='groove')
+TextButton.bind('<Enter>', OnHoverText)
+TextButton.bind('<Leave>', OnLeaveText)
+TextButton['font'] = myFont
+TextButton.place(x=620, y= 250)
+
 tempBarButton = Button(root,text="Temp Bar Graph",width=42,height=2,command=tempBarButtonClick, bg='green', relief='groove')
 tempBarButton.bind('<Enter>', OnHoverBarRain)
 tempBarButton.bind('<Leave>', OnLeaveBarRain)
 tempBarButton['font'] = myFont
-tempBarButton.place(x=620, y= 250)
+tempBarButton.place(x=620, y= 310)
 
 rainBarButton = Button(root,text="Rain Bar Graph",width=42,height=2,command=rainBarButtonClick, bg='green', relief='groove')
 rainBarButton.bind('<Leave>', OnLeaveBarTemp)
 rainBarButton.bind('<Enter>', OnHoverBarTemp)
 rainBarButton['font'] = myFont
-rainBarButton.place(x=620, y= 310)
+rainBarButton.place(x=620, y= 370)
 
 multiBarButton = Button(root,text="Multi Bar Graph",width=42,height=2,command=multiBarButtonClick, bg='green', relief='groove')
 multiBarButton.bind('<Enter>', OnHoverMultiBar)
 multiBarButton.bind('<Leave>', OnLeaveMultiBar)
 multiBarButton['font'] = myFont
-multiBarButton.place(x=620, y= 370)
+multiBarButton.place(x=620, y= 430)
 
-scatterTempButton = Button(root,text="Temp Line Plot",width=42,height=2,command=scatterTempButtonClick, bg='green', relief='groove')
+scatterTempButton = Button(root,text="Temp Line Plot by Month",width=42,height=2,command=scatterTempButtonClick, bg='green', relief='groove')
 scatterTempButton.bind('<Enter>', OnHoverTempScatter)
 scatterTempButton.bind('<Leave>', OnLeaveTempScatter)
 scatterTempButton['font'] = myFont
-scatterTempButton.place(x=620, y= 430)
+scatterTempButton.place(x=420, y= 490)
 
-scatterRainButton = Button(root,text="Rain Line Plot",width=42,height=2,command=scatterRainButtonClick, bg='green', relief='groove')
+scatterRainButton = Button(root,text="Rain Line Plot by Month",width=42,height=2,command=scatterRainButtonClick, bg='green', relief='groove')
 scatterRainButton.bind('<Enter>', OnHoverRainScatter)
 scatterRainButton.bind('<Leave>', OnLeaveRainScatter)
 scatterRainButton['font'] = myFont
-scatterRainButton.place(x=620, y= 490)
+scatterRainButton.place(x=420, y= 550)
 
-scatterButton = Button(root,text="Scatter Plot",width=42,height=2,command=scatterMultiButtonClick, bg='green', relief='groove')
+scatterButton = Button(root,text="Scatter Plot by Month",width=42,height=2,command=scatterMultiButtonClick, bg='green', relief='groove')
 scatterButton.bind('<Enter>', OnHoverScatter)
 scatterButton.bind('<Leave>', OnLeaveScatter)
 scatterButton['font'] = myFont
-scatterButton.place(x=620, y= 550)
+scatterButton.place(x=420, y= 610)
+
+scatterTempButtonDecade = Button(root,text="Temp Line Plot by Decade",width=42,height=2,command=scatterTempDecadeButtonClick, bg='green', relief='groove')
+scatterTempButtonDecade.bind('<Enter>', OnHoverTempScatterDecade)
+scatterTempButtonDecade.bind('<Leave>', OnLeaveTempScatterDecade)
+scatterTempButtonDecade['font'] = myFont
+scatterTempButtonDecade.place(x=820, y= 490)
+
+scatterRainButtonDecade = Button(root,text="Rain Line Plot by Decade",width=42,height=2,command=scatterRainDecadeButtonClick, bg='green', relief='groove')
+scatterRainButtonDecade.bind('<Enter>', OnHoverRainScatterDecade)
+scatterRainButtonDecade.bind('<Leave>', OnLeaveRainScatterDecade)
+scatterRainButtonDecade['font'] = myFont
+scatterRainButtonDecade.place(x=820, y= 550)
+
+scatterButtonDecade = Button(root,text="Scatter Plot by Decade",width=42,height=2,command=scatterMultiDecadeButtonClick, bg='green', relief='groove')
+scatterButtonDecade.bind('<Enter>', OnHoverScatterDecade)
+scatterButtonDecade.bind('<Leave>', OnLeaveScatterDecade)
+scatterButtonDecade['font'] = myFont
+scatterButtonDecade.place(x=820, y= 610)
 
 boxPlotButton = Button(root,text="Box Plot",width=42,height=2,command=boxPlotButtonClick, bg='green', relief='groove')
 boxPlotButton.bind('<Enter>', OnHoverBoxPlot)
 boxPlotButton.bind('<Leave>', OnLeaveBoxPlot)
 boxPlotButton['font'] = myFont
-boxPlotButton.place(x=620, y= 610)
-
-TextButton = Button(root,text="Text Stats",width=42,height=2,command=textbuttonClick, bg='green', relief='groove')
-TextButton.bind('<Enter>', OnHoverText)
-TextButton.bind('<Leave>', OnLeaveText)
-TextButton['font'] = myFont
-TextButton.place(x=620, y= 670)
+boxPlotButton.place(x=620, y= 670)
 
 root.state('zoomed')
 root.mainloop()
