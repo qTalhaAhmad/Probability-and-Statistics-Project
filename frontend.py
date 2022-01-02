@@ -80,43 +80,43 @@ tempBarButton = Button(root,text="Temp Bar Graph",width=42,height=2,command=temp
 tempBarButton.bind('<Enter>', OnHoverBarRain)
 tempBarButton.bind('<Leave>', OnLeaveBarRain)
 tempBarButton['font'] = myFont
-tempBarButton.place(x=620, y= 300)
+tempBarButton.place(x=620, y= 250)
 
 rainBarButton = Button(root,text="Rain Bar Graph",width=42,height=2,command=rainBarButtonClick, bg='green', relief='groove')
 rainBarButton.bind('<Leave>', OnLeaveBarTemp)
 rainBarButton.bind('<Enter>', OnHoverBarTemp)
 rainBarButton['font'] = myFont
-rainBarButton.place(x=620, y= 360)
+rainBarButton.place(x=620, y= 310)
 
 multiBarButton = Button(root,text="Multi Bar Graph",width=42,height=2,command=multiBarButtonClick, bg='green', relief='groove')
 multiBarButton.bind('<Enter>', OnHoverMultiBar)
 multiBarButton.bind('<Leave>', OnLeaveMultiBar)
 multiBarButton['font'] = myFont
-multiBarButton.place(x=620, y= 420)
+multiBarButton.place(x=620, y= 370)
 
 scatterTempButton = Button(root,text="Temp Scatter Plot",width=42,height=2,command=scatterTempButtonClick, bg='green', relief='groove')
 scatterTempButton.bind('<Enter>', OnHoverTempScatter)
 scatterTempButton.bind('<Leave>', OnLeaveTempScatter)
 scatterTempButton['font'] = myFont
-scatterTempButton.place(x=620, y= 480)
+scatterTempButton.place(x=620, y= 430)
 
 scatterRainButton = Button(root,text="Rain Scatter Plot",width=42,height=2,command=scatterRainButtonClick, bg='green', relief='groove')
 scatterRainButton.bind('<Enter>', OnHoverRainScatter)
 scatterRainButton.bind('<Leave>', OnLeaveRainScatter)
 scatterRainButton['font'] = myFont
-scatterRainButton.place(x=620, y= 540)
+scatterRainButton.place(x=620, y= 490)
 
 scatterButton = Button(root,text="Scatter Plot",width=42,height=2,command=scatterMultiButtonClick, bg='green', relief='groove')
 scatterButton.bind('<Enter>', OnHoverScatter)
 scatterButton.bind('<Leave>', OnLeaveScatter)
 scatterButton['font'] = myFont
-scatterButton.place(x=620, y= 600)
+scatterButton.place(x=620, y= 550)
 
 boxPlotButton = Button(root,text="Box Plot",width=42,height=2,command=boxPlotButtonClick, bg='green', relief='groove')
 boxPlotButton.bind('<Enter>', OnHoverBoxPlot)
 boxPlotButton.bind('<Leave>', OnLeaveBoxPlot)
 boxPlotButton['font'] = myFont
-boxPlotButton.place(x=620, y= 660)
+boxPlotButton.place(x=620, y= 610)
 
 root.state('zoomed')
 root.mainloop()
