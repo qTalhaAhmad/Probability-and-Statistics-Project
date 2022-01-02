@@ -1,9 +1,11 @@
 from tkinter import *
 from backend import *
+from tkinter import filedialog
 from PIL import ImageTk,Image
 import tkinter.font as font
 
-root = Tk(className=" Pakistan's Rain-Temp Data ")
+root = Tk()
+root.title("Pakistan's Rain-Temp Data ")
 
 myFont = font.Font(family='Montserrat', size=10)
 
@@ -27,6 +29,25 @@ def scatterRainButtonClick():
 
 def boxPlotButtonClick():
     boxPlotTempRain()
+
+def textbuttonClick():
+
+    def openFile():        
+       tf = open("dataset/statstext.txt", 'r')
+       data = tf.read()
+       txtarea.insert(END, data)
+       tf.close()
+    
+    ws = Tk()
+    ws.title("Statistics")
+    ws.geometry("600x450")
+    ws['bg']='#fb0'
+
+    txtarea = Text(ws, width=70, height=22)
+    txtarea.pack(pady=20)
+
+    Button(ws,text="Calculate & Show Stats",command=openFile).pack(side=RIGHT, expand=True, fill=X, padx=20)
+    ws.mainloop()
 
 def OnHoverScatter(event):
     scatterButton.config(bg='black', fg='white')
@@ -69,6 +90,12 @@ def OnHoverBoxPlot(event):
 
 def OnLeaveBoxPlot(event):
     boxPlotButton.config(bg='green', fg='black')
+
+def OnHoverText(event):
+    TextButton.config(bg='black', fg='white')
+
+def OnLeaveText(event):
+    TextButton.config(bg='green', fg='black')
 
 backgroundImage = Image.open("images/Background.jpg")
 resizedBackground = backgroundImage.resize((1920,1080),Image.ANTIALIAS)
@@ -117,6 +144,12 @@ boxPlotButton.bind('<Enter>', OnHoverBoxPlot)
 boxPlotButton.bind('<Leave>', OnLeaveBoxPlot)
 boxPlotButton['font'] = myFont
 boxPlotButton.place(x=620, y= 610)
+
+TextButton = Button(root,text="Text Stats",width=42,height=2,command=textbuttonClick, bg='green', relief='groove')
+TextButton.bind('<Enter>', OnHoverText)
+TextButton.bind('<Leave>', OnLeaveText)
+TextButton['font'] = myFont
+TextButton.place(x=620, y= 670)
 
 root.state('zoomed')
 root.mainloop()

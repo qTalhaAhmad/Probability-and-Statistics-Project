@@ -19,17 +19,35 @@ dataset1 = pd.read_csv(r'dataset\19012016.csv')
 
 # Taking Mean of Monthly Temprature and Rainfall from 1901-2016
 def meanTempRainFunc():
-    tempMean=dataset1['Temperature (Celsius)'].mean()
-    print ("Average Monthly Temprature (Celsius) from 1901-2016 is:",tempMean, "Celsius")
-    rainMean=dataset1['Rainfall (MM)'].mean()
-    print ("Average Monthly Rainfall (MM) from 1901-2016 is:",rainMean, "MM")
-
+    tempMean=dataset1['Temperature (Celsius)'].mean().round(3)
+    strTempMean=str(tempMean)
+    temp="->Average Monthly Temprature (Celsius) from 1901-2016 was: "
+    file.write(temp)    
+    file.write(strTempMean)
+    file.write(" °C\n")
+    
+    rainMean=dataset1['Rainfall (MM)'].mean().round(3)
+    strrainMean=str(rainMean)
+    temp0="->Average Monthly Rainfall (MM) from 1901-2016 was: "
+    file.write(temp0)    
+    file.write(strrainMean)
+    file.write(" mm\n\n")
+        
 # Taking Median of Monthly Temprature and Rainfall from 1901-2016
 def medianTempRainFunc():
     tempMedian=dataset1['Temperature (Celsius)'].median()
-    print ("Median Monthly Temprature (Celsius) from 1901-2016 is:",tempMedian, "Celsius")
+    strTempMedian=str(tempMedian)
+    temp="->Median Monthly Temprature (Celsius) from 1901-2016 was: "
+    file.write(temp)    
+    file.write(strTempMedian)
+    file.write(" °C\n")
+
     rainMedian=dataset1['Rainfall (MM)'].median()
-    print ("Median Monthly Rainfall (MM) from 1901-2016 is:",rainMedian, "MM")
+    strRainMedian=str(rainMedian)
+    temp0="->Median Monthly Rainfall (MM) from 1901-2016 was: "
+    file.write(temp0)
+    file.write(strRainMedian)
+    file.write(" mm\n\n")
 
 # Descriptive Statistics of Dataset of Temprature and Rainfall from 1901-2016
 def dataDescript():
@@ -47,24 +65,30 @@ rainMin=dataset1['Rainfall (MM)'].min()
 rainMax=dataset1['Rainfall (MM)'].max()
 
 # Taking Minimum and Maximum Row of Monthly Temprature from 1901-2016
-def minMaxTempratureRow():
+def minMaxTempratureRow():    
     tempMinRow = dataset1.loc[dataset1['Temperature (Celsius)'] == tempMin]
-    print ("Minimum Monthly Temprature (Celsius) from 1901-2016 is:")
-    print(tempMinRow.to_string(index=False))
-    print("\n")
+    temp="->Minimum Monthly Temprature (Celsius) from 1901-2016 was in:"
+    file.write(temp+'\n')
+    temp1=tempMinRow.to_string(index=False)
+    file.write(temp1+'\n\n')
     tempMaxRow = dataset1.loc[dataset1['Temperature (Celsius)'] == tempMax]
-    print ("Maximum Monthly Temprature (Celsius) from 1901-2016 is:")
-    print(tempMaxRow.to_string(index=False))
+    temp0="->Maximum Monthly Temprature (Celsius) from 1901-2016 was in:"    
+    file.write(temp0+'\n')
+    temp2=tempMaxRow.to_string(index=False)    
+    file.write(temp2+'\n\n')
 
 # Taking Minimum and Maximum Row of Monthly Rainfall from 1901-2016
 def minMaxRainfallRow():
-    rainMinRow = dataset1.loc[dataset1['Rainfall (MM)'] == rainMin]
-    print ("Minimum Monthly Rainfall (MM) from 1901-2016 is:")
-    print(rainMinRow.to_string(index=False))
-    print("\n")
+    rainMinRow = dataset1.loc[dataset1['Rainfall (MM)'] == rainMin]    
+    temp="->Minimum Monthly Rainfall (MM) from 1901-2016 was in:"
+    file.write(temp+'\n')
+    temp1=rainMinRow.to_string(index=False)
+    file.write(temp1+'\n\n')
     rainMaxRow = dataset1.loc[dataset1['Rainfall (MM)'] == rainMax]
-    print ("Maximum Monthly Rainfall (MM) from 1901-2016 is:")
-    print(rainMaxRow.to_string(index=False))
+    temp0 ="->Maximum Monthly Rainfall (MM) from 1901-2016 was in:"
+    file.write(temp0+'\n')
+    temp2=rainMaxRow.to_string(index=False)
+    file.write(temp2+'\n\n')
 
 # Reading Data from CSV by Month.
 janDataset = dataset1.loc[dataset1['Month'] == 'January']
@@ -208,11 +232,13 @@ def boxPlotTempRain():
 
 ###              FunctionCalls()
 
-#    meanTempRainFunc();        print("\n")
-#    medianTempRainFunc();      print("\n")
-#    dataDescript();            print("\n")
-#    minMaxTempratureRow();     print("\n")
-#    minMaxRainfallRow();       print("\n")
+file = open("dataset/statstext.txt","w") 
+meanTempRainFunc()
+medianTempRainFunc()
+#    dataDescript()
+minMaxTempratureRow()
+minMaxRainfallRow()
+file.close()
 #    avgTMBarG()
 #    avgRMBarG()
 #    tempRainMultiBarChart()
@@ -235,9 +261,13 @@ def boxPlotTempRain():
 #       a. How many appropriate statistical tools have been used?
 #       b. How attractive and intelligent your application is?
 
+
+
+
 #   Paste all codes on a word file in fount size 9 and line space 1. Paste screenshots of your application
 #   with different features/results on a word file. 
 #   Finally, your results and recommendation about the data should be detailed pasted on that word file.
+
 
 
 
