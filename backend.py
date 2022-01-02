@@ -147,11 +147,11 @@ def tempRainMultiBarChart():
 def scatterTempGraphFunc():
     fig3 = plt.figure()    
     a1 = fig3.add_axes([0.1,0.1,0.8,0.8])
-    a1.plot(monthsN, avgTemp, 'ro-')
+    a1.plot(monthsN, avgTemp, 'r-')
     a1.set_xlabel('Months')    
     a1.set_ylabel('Temp (°C)')
     
-    fig3.legend(labels = ('Temp (°C)'),loc='upper center')
+    #fig3.legend(labels = ('Temp (°C)'),loc='upper center')
     plt.title("Pakistan's Temprature in each Month")
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')
@@ -161,11 +161,12 @@ def scatterTempGraphFunc():
 def scatterRainGraphFunc():
     fig5 = plt.figure()    
     a1 = fig5.add_axes([0.1,0.1,0.8,0.8])
-    a1.plot(monthsN, avgRain, 'go-')
+    
+    a1.plot(monthsN, avgRain, 'g-')
     a1.set_xlabel('Months')    
     a1.set_ylabel('Rain (mm)')
     
-    fig5.legend(labels = ('Rain (mm)'),loc='upper center')
+    #fig5.legend(labels = ('Rain (mm)'),loc='upper center')
     plt.title("Pakistan's Rainfall in each Month")
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')

@@ -94,13 +94,13 @@ multiBarButton.bind('<Leave>', OnLeaveMultiBar)
 multiBarButton['font'] = myFont
 multiBarButton.place(x=620, y= 370)
 
-scatterTempButton = Button(root,text="Temp Scatter Plot",width=42,height=2,command=scatterTempButtonClick, bg='green', relief='groove')
+scatterTempButton = Button(root,text="Temp Line Plot",width=42,height=2,command=scatterTempButtonClick, bg='green', relief='groove')
 scatterTempButton.bind('<Enter>', OnHoverTempScatter)
 scatterTempButton.bind('<Leave>', OnLeaveTempScatter)
 scatterTempButton['font'] = myFont
 scatterTempButton.place(x=620, y= 430)
 
-scatterRainButton = Button(root,text="Rain Scatter Plot",width=42,height=2,command=scatterRainButtonClick, bg='green', relief='groove')
+scatterRainButton = Button(root,text="Rain Line Plot",width=42,height=2,command=scatterRainButtonClick, bg='green', relief='groove')
 scatterRainButton.bind('<Enter>', OnHoverRainScatter)
 scatterRainButton.bind('<Leave>', OnLeaveRainScatter)
 scatterRainButton['font'] = myFont
