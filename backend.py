@@ -203,20 +203,21 @@ def boxPlotTempRain():
 ## regression -- prediction
 
 
-####   Function Calling
-# meanTempRainFunc();print("\n")
-# medianTempRainFunc();print("\n")
-# dataDescript();print("\n")
-# minMaxTempratureRow();print("\n")
-# minMaxRainfallRow();print("\n")
-# avgTMBarG()
-# avgRMBarG()
-# tempRainMultiBarChart()
-# boxPlotTempRain()
-# scatterTempGraphFunc()
-# scatterRainGraphFunc()
-# scatterMultiGraphFunc()
-# boxPlotTempRain()
+###              FunctionCalls()
+
+#    meanTempRainFunc();        print("\n")
+#    medianTempRainFunc();      print("\n")
+#    dataDescript();            print("\n")
+#    minMaxTempratureRow();     print("\n")
+#    minMaxRainfallRow();       print("\n")
+#    avgTMBarG()
+#    avgRMBarG()
+#    tempRainMultiBarChart()
+#    boxPlotTempRain()
+#    scatterTempGraphFunc()
+#    scatterRainGraphFunc()
+#    scatterMultiGraphFunc()
+#    boxPlotTempRain()
 
 #_____________________________________________________________________________________________________________
 #   Data can be editable. At any stage, we can add or delete any values in the data set.
