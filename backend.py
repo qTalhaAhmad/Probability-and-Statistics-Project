@@ -101,8 +101,8 @@ avgRain = [janRainMean,febRainMean,marRainMean,aprRainMean,mayRainMean,junRainMe
 
 avgTRdata = [avgTemp,avgRain]
 
-months2 = ['December', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November']
-avgRain2 = [decRainMean,janRainMean,febRainMean,marRainMean,aprRainMean,mayRainMean,junRainMean,julRainMean,augRainMean,sepRainMean,octRainMean,novRainMean]
+months2 = [ 'November','December', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October']
+avgRain2 = [novRainMean,decRainMean,janRainMean,febRainMean,marRainMean,aprRainMean,mayRainMean,junRainMean,julRainMean,augRainMean,sepRainMean,octRainMean]
 
 # Bar Graph of Pakistan's Average Temprature/Month from 1901-2016
 def avgTMBarG():
