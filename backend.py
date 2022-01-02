@@ -143,10 +143,38 @@ def tempRainMultiBarChart():
     wm.window.state('zoomed')
     plt.show()
 
-# Scatter Plot of Pakistan's Average Rainfall/Month from 1901-2016 (Showing Relation)
-def scatterGraphFunc():
+# Scatter Plot of Pakistan's Average Temprature/Month from 1901-2016 (Showing Relation)
+def scatterTempGraphFunc():
     fig3 = plt.figure()    
     a1 = fig3.add_axes([0.1,0.1,0.8,0.8])
+    a1.plot(monthsN, avgTemp, 'ro-')
+    a1.set_xlabel('Months')    
+    a1.set_ylabel('Temp (°C)')
+    
+    fig3.legend(labels = ('Temp (°C)'),loc='upper center')
+    plt.title("Pakistan's Temprature in each Month")
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.show()
+
+# Scatter Plot of Pakistan's Average Temprature/Month from 1901-2016 (Showing Relation)
+def scatterRainGraphFunc():
+    fig5 = plt.figure()    
+    a1 = fig5.add_axes([0.1,0.1,0.8,0.8])
+    a1.plot(monthsN, avgRain, 'go-')
+    a1.set_xlabel('Months')    
+    a1.set_ylabel('Rain (mm)')
+    
+    fig5.legend(labels = ('Rain (mm)'),loc='upper center')
+    plt.title("Pakistan's Rainfall in each Month")
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.show()
+
+# Scatter Plot of Pakistan's Average Rainfall-Temprature/Month from 1901-2016 (Showing Relation)
+def scatterMultiGraphFunc():
+    fig6 = plt.figure()    
+    a1 = fig6.add_axes([0.1,0.1,0.8,0.8])
     a1.plot(monthsN, avgTemp, 'ro-')
     a1.set_xlabel('Months')    
     a1.set_ylabel('Temp (°C)')
@@ -155,7 +183,7 @@ def scatterGraphFunc():
     a2.plot(monthsN, avgRain, 'go-')
     a2.set_ylabel('Rain (mm)')
 
-    fig3.legend(labels = ('Temp (°C)','Rain (mm)'),loc='upper center')
+    fig6.legend(labels = ('Temp (°C)','Rain (mm)'),loc='upper center')
     plt.title("Relationship b/w Pakistan's Rainfall/Temprature in each Month")
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')
@@ -164,7 +192,7 @@ def scatterGraphFunc():
 def boxPlotTempRain():
     fig4 = plt.figure()
     ax = fig4.add_axes([0.1,0.1,0.8,0.8])
-    ax.set_xticklabels(['Temprature', 'Rain'])
+    ax.set_xticklabels(['Temprature', 'Rain']) # warning for fixed labels.
     bp = ax.boxplot(avgTRdata)
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')
@@ -185,7 +213,9 @@ def boxPlotTempRain():
 # avgRMBarG()
 # tempRainMultiBarChart()
 # boxPlotTempRain()
-# scatterGraphFunc()
+# scatterTempGraphFunc()
+# scatterRainGraphFunc()
+# scatterMultiGraphFunc()
 # boxPlotTempRain()
 
 #_____________________________________________________________________________________________________________

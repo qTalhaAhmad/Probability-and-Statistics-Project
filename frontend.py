@@ -12,8 +12,14 @@ def rainBarButtonClick():
 def multiBarButtonClick():
     tempRainMultiBarChart()
 
-def scatterButtonClick():
-    scatterGraphFunc()
+def scatterMultiButtonClick():
+    scatterMultiGraphFunc()
+
+def scatterTempButtonClick():
+    scatterTempGraphFunc()
+
+def scatterRainButtonClick():    
+    scatterRainGraphFunc()
 
 def boxPlotButtonClick():
     boxPlotTempRain()
@@ -23,6 +29,18 @@ def OnHoverScatter(event):
 
 def OnLeaveScatter(event):
     scatterButton.config(bg='blue', fg='black')
+
+def OnHoverTempScatter(event):
+    scatterTempButton.config(bg='black', fg='white')
+
+def OnLeaveTempScatter(event):
+    scatterTempButton.config(bg='blue', fg='black')
+
+def OnHoverRainScatter(event):
+    scatterRainButton.config(bg='black', fg='white')
+
+def OnLeaveRainScatter(event):
+   scatterRainButton.config(bg='blue', fg='black')
 
 def OnHoverBarTemp(event):
     rainBarButton.config(bg='black', fg='white')    
@@ -68,15 +86,25 @@ multiBarButton.bind('<Enter>', OnHoverMultiBar)
 multiBarButton.bind('<Leave>', OnLeaveMultiBar)
 multiBarButton.place(x=675, y= 300)
 
-scatterButton = Button(root,text="Click To Display Scatter Graph",command=scatterButtonClick, bg='blue', relief='groove')
+scatterTempButton = Button(root,text="Click To Display Temp Scatter Graph",command=scatterTempButtonClick, bg='blue', relief='groove')
+scatterTempButton.bind('<Enter>', OnHoverTempScatter)
+scatterTempButton.bind('<Leave>', OnLeaveTempScatter)
+scatterTempButton.place(x=75, y= 400)
+
+scatterRainButton = Button(root,text="Click To Display Rain Scatter Graph",command=scatterRainButtonClick, bg='blue', relief='groove')
+scatterRainButton.bind('<Enter>', OnHoverRainScatter)
+scatterRainButton.bind('<Leave>', OnLeaveRainScatter)
+scatterRainButton.place(x=375, y= 400)
+
+scatterButton = Button(root,text="Click To Display Multi Scatter Graph",command=scatterMultiButtonClick, bg='blue', relief='groove')
 scatterButton.bind('<Enter>', OnHoverScatter)
 scatterButton.bind('<Leave>', OnLeaveScatter)
-scatterButton.place(x=975, y= 300)
+scatterButton.place(x=675, y= 400)
 
 boxPlotButton = Button(root,text="Click To Display Box Plot",command=boxPlotButtonClick, bg='blue', relief='groove')
 boxPlotButton.bind('<Enter>', OnHoverBoxPlot)
 boxPlotButton.bind('<Leave>', OnLeaveBoxPlot)
-boxPlotButton.place(x=1275, y= 300)
+boxPlotButton.place(x=475, y= 200)
 
 root.state('zoomed') # graphs much easier to understand in fullscreen mode, also looks better.
 root.mainloop()
