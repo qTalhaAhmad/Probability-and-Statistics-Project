@@ -1,6 +1,6 @@
 from tkinter import *
 from backend import *
-
+from PIL import ImageTk,Image
 root = Tk(className="Rainfall Graphs Data")
 
 def tempBarButtonClick():
@@ -66,9 +66,13 @@ def OnHoverBoxPlot(event):
 def OnLeaveBoxPlot(event):
     boxPlotButton.config(bg='blue', fg='black')
 
-backgroundImage = PhotoImage(file="images/background.png")     # update background image with some 1920x1080 pic
+backgroundImage = Image.open("images/Background.jpg")
 
-backgroundLabel = Label( root, image = backgroundImage)
+resizedBackground = backgroundImage.resize((1920,1080),Image.ANTIALIAS)
+
+newBackground = ImageTk.PhotoImage(resizedBackground)
+
+backgroundLabel = Label( root, image =newBackground)
 backgroundLabel.place(x = 0, y = 0)
 
 tempBarButton = Button(root,text="Click To Display Temp Bar Graph",command=tempBarButtonClick, bg='blue', relief='groove')
