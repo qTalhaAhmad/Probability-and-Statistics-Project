@@ -342,7 +342,7 @@ def linearReg2():
     #dataset11 = pd.read_csv(r'dataset\19012016.csv', usecols = ['Temperature (Celsius)'])
     #dataset12 = pd.read_csv(r'dataset\19012016.csv', usecols = ['Rainfall (MM)'])
 
-    dataset1.plot.scatter(y = 'Rainfall (MM)', x = 'Temperature (Celsius)')
+    dataset1.plot.scatter(x = 'Temperature (Celsius)', y = 'Rainfall (MM)')
     
     slope, intercept, r, p, std_err = stats.linregress(avgRain, avgTemp)
 
@@ -388,7 +388,7 @@ file.close()
 #    scatterMultiGraphFunc()
 #    boxPlotTempRain()
 #    boxPlotTempRainDecade()
-linearReg()
-linearReg2()
+#    linearReg()
+#    linearReg2()
 
 #__________________E____N____D________O__F________P___R___O___G___R___A___M___________________________________
