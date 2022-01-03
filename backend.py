@@ -2,7 +2,7 @@ import csv
 import math
 from os import sep
 import statistics
-import scipy.stats
+from scipy import stats
 import numpy as np
 import pandas as pd
 from matplotlib import colors
@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
 #                      --Temprature-Rainfall 1901-2016--
-#    19F-0113 (CS),    19F-0171 (CS),      19F-0254 (CS),       19F-0931 (SE)
+#    19F-0113 (CS),    19F-0171 (CS),         19F-0254 (CS),       19F-0931 (SE)
 #    Talha Ahmad,      M. Talha Shehroze,     Muhammad Farhan,     Daniyal Ahmed
 
 # Reading Data from CSV.
@@ -302,30 +302,74 @@ def boxPlotTempRain():
     wm.window.state('zoomed')
     plt.show()
 
+def boxPlotTempRainDecade():
+    fig14 = plt.figure()
+    ax = fig14.add_axes([0.1,0.1,0.8,0.8])
+    ax.set_xticklabels(['Temprature', 'Rain']) # warning for fixed labels.
+    bp = ax.boxplot(avgTRdataDecade)
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.show()
 
-## distribution -- analysis
+def linearReg():
+    
+    slope, intercept, r, p, std_err = stats.linregress(avgTempDecade, avgRainDecade)
 
-## covariance / correlation
+    def myfunc(avgTempDecade):
+      return slope * avgTempDecade + intercept
 
-## regression -- prediction
+    mymodel = list(map(myfunc, avgTempDecade))
 
+    fig24 = plt.figure()
+    ax = fig24.add_axes([0.1,0.1,0.8,0.8])
+    ax.set_xlabel('Temp (°C)')    
+    ax.set_ylabel('Rain (mm)')
 
-###     FunctionCalls()
+    plt.scatter(avgTempDecade, avgRainDecade)
+    plt.plot(avgTempDecade, mymodel)
+    plt.title("Regression Model b/w Pakistan's Temprature on Rainfall by each Month")
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.show()
+
+def linearReg2():
+    
+    slope, intercept, r, p, std_err = stats.linregress(avgRainDecade, avgTempDecade)
+
+    def myfunc(avgRainDecade):
+      return slope * avgRainDecade + intercept
+
+    mymodel = list(map(myfunc, avgRainDecade))
+
+    fig34 = plt.figure()
+    ax = fig34.add_axes([0.1,0.1,0.8,0.8])    
+    ax.set_xlabel('Rain (mm)')
+    ax.set_ylabel('Temp (°C)')
+
+    plt.scatter(avgRainDecade, avgTempDecade)
+    plt.plot(avgRainDecade, mymodel)
+    plt.title("Regression Model b/w Pakistan's Rainfall on Temprature by each Month")
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.show()
+
+#####     FunctionCalls()
 
 file = open("dataset/statstext.txt","w") 
+
 meanTempRainFunc()
 medianTempRainFunc()
 #    dataDescript()
 minMaxTempratureRow()
 minMaxRainfallRow()
+
 file.close()
+
 #    avgTMBarG()
 #    avgTMBarGDecade()
-
-#scatterTempGraphFuncDecade()
-#scatterRainGraphFuncDecade()
-#scatterMultiGraphFuncDecade()
-
+#    scatterTempGraphFuncDecade()
+#    scatterRainGraphFuncDecade()
+#    scatterMultiGraphFuncDecade()
 #    avgRMBarG()
 #    tempRainMultiBarChart()
 #    boxPlotTempRain()
@@ -333,34 +377,8 @@ file.close()
 #    scatterRainGraphFunc()
 #    scatterMultiGraphFunc()
 #    boxPlotTempRain()
+#    boxPlotTempRainDecade()
+#    linearReg()
+#    linearReg2()
 
 #__________________E____N____D________O__F________P___R___O___G___R___A___M___________________________________
-
-#   Probability distributions. 
-#   Finally, modeling and Predictions using Regression Models.
-
-#   Paste all codes on a word file in fount size 9 and line space 1. Paste screenshots of your application
-#   with different features/results on a word file. 
-#   Finally, your results and recommendation about the data should be detailed pasted on that word file.
-
-
-# Probability Distribution 
-
-# --Discrete
-# 
-# ----Binomial
-# ----Poisson
-# ----Hypergeometric
-# 
-# --Continuous
-# 
-# ----Uniform
-# ----Normal
-# 
-# Covariance
-# Correlation
-# 
-# Deterministic
-# Probabilistic
-
-# Error term
