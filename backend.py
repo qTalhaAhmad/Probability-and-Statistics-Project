@@ -120,18 +120,18 @@ decTempMean=decDataset['Temperature (Celsius)'].mean();    decRainMean=decDatase
 
 
 # Reading Data from CSV by Decades.
-dataset1903 = dataset1.loc[dataset1['Year'] == 1903]
-dataset1913 = dataset1.loc[dataset1['Year'] == 1913]
-dataset1923 = dataset1.loc[dataset1['Year'] == 1923]
-dataset1933 = dataset1.loc[dataset1['Year'] == 1933]
-dataset1943 = dataset1.loc[dataset1['Year'] == 1943]
-dataset1953 = dataset1.loc[dataset1['Year'] == 1953]
-dataset1963 = dataset1.loc[dataset1['Year'] == 1963]
-dataset1973 = dataset1.loc[dataset1['Year'] == 1973]
+dataset1903 = dataset1.loc[dataset1['Year'] == 1901]
+dataset1913 = dataset1.loc[dataset1['Year'] == 1911]
+dataset1923 = dataset1.loc[dataset1['Year'] == 1921]
+dataset1933 = dataset1.loc[dataset1['Year'] == 1931]
+dataset1943 = dataset1.loc[dataset1['Year'] == 1941]
+dataset1953 = dataset1.loc[dataset1['Year'] == 1951]
+dataset1963 = dataset1.loc[dataset1['Year'] == 1961]
+dataset1973 = dataset1.loc[dataset1['Year'] == 1972]
 dataset1983 = dataset1.loc[dataset1['Year'] == 1983]
-dataset1993 = dataset1.loc[dataset1['Year'] == 1993]
-dataset2003 = dataset1.loc[dataset1['Year'] == 2003]
-dataset2013 = dataset1.loc[dataset1['Year'] == 2013]
+dataset1993 = dataset1.loc[dataset1['Year'] == 1994]
+dataset2003 = dataset1.loc[dataset1['Year'] == 2005]
+dataset2013 = dataset1.loc[dataset1['Year'] == 2016]
 
 # Calculating Mean Temprature and Rain by Decades.
 TempMean1903=dataset1903['Temperature (Celsius)'].mean();    RainMean1903=dataset1903['Rainfall (MM)'].mean()
@@ -313,20 +313,25 @@ def boxPlotTempRainDecade():
 
 def linearReg():
     
-    slope, intercept, r, p, std_err = stats.linregress(avgTempDecade, avgRainDecade)
+    #dataset11 = pd.read_csv(r'dataset\19012016.csv', usecols = ['Temperature (Celsius)'])
+    #dataset12 = pd.read_csv(r'dataset\19012016.csv', usecols = ['Rainfall (MM)'])
 
-    def myfunc(avgTempDecade):
-      return slope * avgTempDecade + intercept
+    dataset1.plot.scatter(x = 'Rainfall (MM)', y = 'Temperature (Celsius)')
+    
+    slope, intercept, r, p, std_err = stats.linregress(avgTemp, avgRain)
 
-    mymodel = list(map(myfunc, avgTempDecade))
+    def myfunc(avgTemp):
+      return slope * avgTemp + intercept
+
+    mymodel = list(map(myfunc, avgTemp))
 
     fig24 = plt.figure()
     ax = fig24.add_axes([0.1,0.1,0.8,0.8])
     ax.set_xlabel('Temp (°C)')    
     ax.set_ylabel('Rain (mm)')
 
-    plt.scatter(avgTempDecade, avgRainDecade)
-    plt.plot(avgTempDecade, mymodel)
+    plt.scatter(avgTemp, avgRain)
+    plt.plot(avgTemp, mymodel)
     plt.title("Regression Model b/w Pakistan's Temprature on Rainfall by each Month")
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')
@@ -334,20 +339,25 @@ def linearReg():
 
 def linearReg2():
     
-    slope, intercept, r, p, std_err = stats.linregress(avgRainDecade, avgTempDecade)
+    #dataset11 = pd.read_csv(r'dataset\19012016.csv', usecols = ['Temperature (Celsius)'])
+    #dataset12 = pd.read_csv(r'dataset\19012016.csv', usecols = ['Rainfall (MM)'])
 
-    def myfunc(avgRainDecade):
-      return slope * avgRainDecade + intercept
+    dataset1.plot.scatter(y = 'Rainfall (MM)', x = 'Temperature (Celsius)')
+    
+    slope, intercept, r, p, std_err = stats.linregress(avgRain, avgTemp)
 
-    mymodel = list(map(myfunc, avgRainDecade))
+    def myfunc(avgRain):
+      return slope * avgRain + intercept
+
+    mymodel = list(map(myfunc, avgRain))
 
     fig34 = plt.figure()
-    ax = fig34.add_axes([0.1,0.1,0.8,0.8])    
+    ax = fig34.add_axes([0.1,0.1,0.8,0.8])
     ax.set_xlabel('Rain (mm)')
     ax.set_ylabel('Temp (°C)')
 
-    plt.scatter(avgRainDecade, avgTempDecade)
-    plt.plot(avgRainDecade, mymodel)
+    plt.scatter(avgRain, avgTemp)
+    plt.plot(avgRain, mymodel)
     plt.title("Regression Model b/w Pakistan's Rainfall on Temprature by each Month")
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')
@@ -378,7 +388,7 @@ file.close()
 #    scatterMultiGraphFunc()
 #    boxPlotTempRain()
 #    boxPlotTempRainDecade()
-#    linearReg()
-#    linearReg2()
+linearReg()
+linearReg2()
 
 #__________________E____N____D________O__F________P___R___O___G___R___A___M___________________________________
